@@ -6,11 +6,11 @@
     <body>
         <h1>Welcome to TreasureGram!!!</h1>
         {% for treasure in  treasures %}
-            <p>{{ treasure.name }}</p>
+            <p>{{ treasure.name }}
             {% if treasure.value > 0 %}
-                <p>{{ treasure.value }}}</p>
+                {{ treasure.value }}</p>
             {% else %}
-                <p>Unknown</p>   
+                Unknown</p>   
             {% endif %}
         {% endfor %}
     </body>

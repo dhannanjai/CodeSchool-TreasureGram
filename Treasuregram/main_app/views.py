@@ -4,4 +4,4 @@ from .models import Treasure
 
 def homepage_view(request):
     treasures = Treasure.objects.all()
-    return render(request,'homepage_view.html', {'treasure':treasures})
+    return render(request,'homepage_view.html', {'treasures':treasures})
