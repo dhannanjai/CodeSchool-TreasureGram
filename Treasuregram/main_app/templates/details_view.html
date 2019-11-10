@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +7,32 @@
 </head>
 
 <body>
-    <h1>{{ treasure.name }}</h1>
-    <p>Value: {{ treasure.value }}</p>
-    <p>Location:{{ treasure.location }}</p>
+
+    <div class="panel-heading">
+        <h1 class="panel-title">{{ treasure.name }}</h1>
+    </div>
+    <div class="panel-body">
+        <table class="treasure-table">
+            <tr>
+                <th>
+                    <img src="{% static "images/material-icon.png" %}" alt="Material Icon">
+                </th>
+                <td>{{ treasure.material }}</td>
+            </tr>
+            <tr>
+                <th>
+                    <img src="{% static "images/value-icon.png" %}" alt="Value Icon">
+                </th>
+                <td>${{ treasure.value }}</td>
+            </tr>
+            <tr>
+                <th>
+                    <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                </th>
+                <td>{{ treasure.location }}</td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
