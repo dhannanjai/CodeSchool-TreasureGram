@@ -15,42 +15,19 @@
         <a href="/"><img src="{% static "images/logo.png" %}" height="90"></a>
     </nav>
     <main class="container container--mw700">
+        <div class="row">
         {% for treasure in treasures %}
-        <div class="treasure panel panel-default">
+        <div class="col-md-4">
+            <div class="treasure panel panel-default">
 
-            <div class="panel-heading">
-                <h3 class="panel-title">{{ treasure.name }}</h3>
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ treasure.name }}</h3>
+                </div>
+
             </div>
-
-            <div class="panel-body">
-                <table class="treasure-table">
-                    <tr>
-                        <th>
-                            <img src="{% static "images/material-icon.png" %}" alt="Material Icon">
-                            Material:
-                        </th>
-                        <td>{{ treasure.material }}</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <img src="{% static "images/value-icon.png" %}" alt="Value Icon">
-                            Value:
-                        </th>
-                        <td>${{ treasure.value }}</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
-                            Location:
-                        </th>
-                        <td>{{ treasure.location }}</td>
-                    </tr>
-                </table>
-            </div>
-
         </div>
         {% endfor %}
-
+        </div>
     </main>
 
 </html>
