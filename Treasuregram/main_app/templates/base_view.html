@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'style.css' %}" media="screen">
     <title>TreasureGram</title>
 </head>
 
@@ -11,8 +11,10 @@
     <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
         <a href="/"><img src="{% static "images/logo.png" %}" height="90"></a>
     </nav>
+
     {% block content %}
     {% endblock content %}
+
 </body>
 
 </html>
