@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Treasure
 from .forms import TreasureForm
 
@@ -22,4 +22,4 @@ def post_treasure_view(request):
                             location=form.cleaned_data['location'])
         treasure.save()
     
-    return HttpResponseRedirect('')
+    return HttpResponseRedirect('/')
