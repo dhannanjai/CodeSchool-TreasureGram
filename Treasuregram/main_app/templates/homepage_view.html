@@ -19,5 +19,20 @@
         </div>
         {% endfor %}
     </div>
+
+    <div>
+        <div>
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Treasure</h3>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form action="post_url/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
 </main>
 {% endblock %}
