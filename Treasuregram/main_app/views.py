@@ -16,10 +16,6 @@ def details_view(request, treasure_id):
 def post_treasure_view(request):
     form = TreasureForm(request.POST)
     if form.is_valid():
-        treasure = Treasure(name=form.cleaned_data['name'],
-                            value=form.cleaned_data['value'],
-                            material=form.cleaned_data['material'],
-                            location=form.cleaned_data['location'])
-        treasure.save()
+        form.save(commit = True)
     
     return HttpResponseRedirect('/')
