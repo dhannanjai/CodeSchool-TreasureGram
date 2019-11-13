@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
 from .models import Treasure
 from .forms import TreasureForm
 
@@ -16,6 +17,8 @@ def details_view(request, treasure_id):
 def post_treasure_view(request):
     form = TreasureForm(request.POST)
     if form.is_valid():
-        form.save(commit = True)
+        treasure = form.save(commit = False)
+        treasure.user = request.user
+        treasure.save()
     
     return HttpResponseRedirect('/')

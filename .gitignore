@@ -12,3 +12,4 @@ Treasuregram/main_app/__pycache__/admin.cpython-37.pyc
 Treasuregram/main_app/migrations/__pycache__/0001_initial.cpython-37.pyc
 Treasuregram/main_app/migrations/__pycache__/0002_remove_treasure_img_url.cpython-37.pyc
 Treasuregram/main_app/__pycache__/forms.cpython-37.pyc
+Treasuregram/main_app/migrations/__pycache__/0003_treasure_user.cpython-37.pyc
