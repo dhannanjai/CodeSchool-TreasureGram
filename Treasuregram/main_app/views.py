@@ -48,3 +48,8 @@ def login_view(request):
     else:
         form = LoginForm()
         return render(request, 'login_view.html', {'form': form})
+
+def logout_view(request):
+    print("Logging out")
+    logout(request)
+    return HttpResponseRedirect('/')
