@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Treasure
-from .forms import TreasureForm
+from .forms import TreasureForm, LoginForm
+from django.contrib.auth import login ,logout, authenticate
 
 def homepage_view(request):
     treasures = Treasure.objects.all()
@@ -27,3 +28,23 @@ def user_profile_view(request,user_name):
     user = User.objects.get(username = user_name)
     treasures = Treasure.objects.filter(user = user)
     return render(request, 'profile_view.html', {'username': user , 'treasures': treasures})
+
+def login_view(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            u = form.cleaned_data.get('username')
+            p = form.cleaned_data.get('password')
+            user = authenticate(username = u, password = p)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/')
+                else:
+                    print('The Account has been disabled!')
+            else:
+                print('Authentication failed')
+    else:
+        form = LoginForm()
+        return render(request, 'login_view.html', {'form': form})
